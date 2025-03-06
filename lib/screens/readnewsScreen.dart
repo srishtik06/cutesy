@@ -35,7 +35,6 @@ class _ReadnewsscreenState extends State<Readnewsscreen> {
           ],
         ),
       ),
-      bottomNavigationBar: ,
     );
   }
 
