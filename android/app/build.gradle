@@ -25,7 +25,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.example.cutesy"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 34
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -55,18 +55,19 @@ android {
     flavorDimensions "default"
 
     productFlavors {
-        dev {
-            dimension "default"
-            applicationIdSuffix ".dev"
-            versionNameSuffix "-dev"
-        }
         qa {
             dimension "default"
             applicationIdSuffix ".qa"
             versionNameSuffix "-qa"
         }
+        dev {
+            dimension "default"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+        }
         prod {
             dimension "default"
+            // prod usually has no suffix
         }
     }
 }

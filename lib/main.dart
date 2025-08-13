@@ -1,18 +1,22 @@
-import 'package:cutesy/screens/splash.dart';
 import 'package:flutter/material.dart';
+import 'config.dart';
 
-void main() {
-  runApp(const MyApp());
+late AppConfig appConfig;
+
+void startApp({required AppConfig config}) {
+  appConfig = config;
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      title: appConfig.appName,
+      home: Scaffold(
+        appBar: AppBar(title: Text(appConfig.appName)),
+        body: Center(child: Text('Base URL: ${appConfig.baseUrl}')),
+      ),
     );
   }
 }

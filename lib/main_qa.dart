@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
 import 'config.dart';
+import 'main.dart' as main_app;
 
 void main() {
-  Config.appFlavor = Flavor.qa;
-  runApp(const MyApp());
-}
+  // You can set different config values for QA
+  final qaConfig = AppConfig(
+    appName: "Cutesy QA",
+    baseUrl: "https://qa.api.example.com",
+  );
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'QA App',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('QA Build')),
-        body: Center(
-          child: Text('Environment: ${Config.appFlavor.name}\nAPI: ${Config.baseUrl}'),
-        ),
-      ),
-    );
-  }
+  main_app.startApp(config: qaConfig);
 }
