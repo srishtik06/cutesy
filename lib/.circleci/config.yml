@@ -1,0 +1,26 @@
+version: 2.1
+
+orbs:
+  flutter: circleci/flutter@2.0.0
+
+jobs:
+  build-qa:
+    docker:
+      - image: cirrusci/flutter:3.13.0
+    steps:
+      - checkout
+      - run:
+          name: Get Flutter dependencies
+          command: flutter pub get
+      - run:
+          name: Build QA APK
+          command: flutter build apk --flavor qa -t lib/main_qa.dart
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build/app/outputs/flutter-apk/app-qa-release.apk
+
+workflows:
+  qa-build-workflow:
+    jobs:
+      - build-qa
