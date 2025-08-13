@@ -6,7 +6,7 @@ orbs:
 jobs:
   build-qa:
     docker:
-      - image: ghcr.io/cirruslabs/flutter:3.13.0
+      - image: ghcr.io/cirruslabs/flutter:3.32.8
     steps:
       - checkout
       - run:
